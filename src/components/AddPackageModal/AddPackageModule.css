@@ -1,0 +1,22 @@
+.box-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  min-height: fit-content;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.input-field {
+  width: 100%;
+  margin-bottom: 12px !important;
+}
+
+.add_package_btn {
+  margin-top: 8px !important;
+  display: inline-block !important;
+  text-transform: capitalize !important;
+}
