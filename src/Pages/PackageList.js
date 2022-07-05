@@ -18,10 +18,17 @@ import AddPackageModal from '../components/AddPackageModal/AddPackageModal';
 import { useAppContext } from '../context/context';
 
 const PackageList = () => {
-  let { packages, removePackage, showModal, displayModal, moveUp, moveDown } =
+  let { packages, removePackage, showModal, displayModal, updatePackages } =
     useAppContext();
 
-  packages = packages.sort((a, b) => a.shippingOrder - b.shippingOrder);
+  let newPackages = [...packages];
+
+  const move = (type, index) => {
+    let f = newPackages.splice(index, 1)[0];
+    newPackages.splice(type === 'up' ? index - 1 : index + 1, 0, f);
+
+    updatePackages(newPackages);
+  };
 
   return (
     <>
@@ -77,13 +84,13 @@ const PackageList = () => {
                       </Button>
                       <Button
                         disabled={index === 0}
-                        onClick={() => moveUp(index)}
+                        onClick={() => move('up', index)}
                       >
                         <ArrowUpwardIcon />
                       </Button>
                       <Button
                         disabled={index === packages.length - 1}
-                        onClick={() => moveDown(index)}
+                        onClick={() => move('down', index)}
                       >
                         <ArrowDownwardIcon />
                       </Button>

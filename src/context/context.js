@@ -9,6 +9,7 @@ import {
   DISPLAY_MODAL,
   MOVE_UP,
   MOVE_DOWN,
+  UPDATE_PACKAGES,
 } from './actions';
 
 const initalState = {
@@ -48,12 +49,16 @@ const AppProvider = ({ children }) => {
     dispatch({ type: DISPLAY_MODAL });
   };
 
-  const moveUp = (index) => {
-    dispatch({ type: MOVE_UP, payload: index });
+  const moveUp = (type, index) => {
+    dispatch({ type: MOVE_UP, payload: { type, index } });
   };
 
-  const moveDown = (index) => {
-    dispatch({ type: MOVE_DOWN, payload: index });
+  const moveDown = (type, index) => {
+    dispatch({ type: MOVE_DOWN, payload: { type, index } });
+  };
+
+  const updatePackages = (PKG) => {
+    dispatch({ type: UPDATE_PACKAGES, payload: PKG });
   };
 
   return (
@@ -67,6 +72,7 @@ const AppProvider = ({ children }) => {
         displayModal,
         moveUp,
         moveDown,
+        updatePackages,
       }}
     >
       {children}

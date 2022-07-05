@@ -4,8 +4,7 @@ import {
   REMOVE_CUSTOMER,
   REMOVE_PACKAGE,
   DISPLAY_MODAL,
-  MOVE_UP,
-  MOVE_DOWN,
+  UPDATE_PACKAGES,
 } from './actions';
 
 const reducer = (state, { type, payload }) => {
@@ -36,27 +35,10 @@ const reducer = (state, { type, payload }) => {
         ...state,
         showModal: !state.showModal,
       };
-    case MOVE_UP:
+    case UPDATE_PACKAGES:
       return {
         ...state,
-        packages: () => {
-          let newIndex = payload - 1;
-          if (newIndex < 0) {
-            newIndex = 0;
-          }
-          return [...state.packages, state.packages[newIndex]];
-        },
-      };
-    case MOVE_DOWN:
-      return {
-        ...state,
-        packages: () => {
-          let newIndex = payload + 1;
-          if (newIndex > state.packages.length - 1) {
-            newIndex = state.packages.length - 1;
-          }
-          return [...state.packages, state.packages[newIndex]];
-        },
+        packages: payload,
       };
 
     default:

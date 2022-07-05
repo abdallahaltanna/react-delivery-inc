@@ -5,3 +5,4 @@ export const ADD_PACKAGE = 'ADD_PACKAGE';
 export const DISPLAY_MODAL = 'DISPLAY_MODAL';
 export const MOVE_UP = 'MOVE_UP';
 export const MOVE_DOWN = 'MOVE_DOWN';
+export const UPDATE_PACKAGES = 'UPDATE_PACKAGES';

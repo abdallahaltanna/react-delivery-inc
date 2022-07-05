@@ -10,7 +10,7 @@ const AddPackageModal = () => {
   const [modalData, setModalData] = useState({
     id: '',
     weight: '',
-    customerId: 0,
+    customerid: 0,
     price: 0,
     shippingOrder: 0,
   });
