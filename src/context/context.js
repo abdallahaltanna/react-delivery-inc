@@ -7,8 +7,6 @@ import {
   REMOVE_PACKAGE,
   ADD_PACKAGE,
   DISPLAY_MODAL,
-  MOVE_UP,
-  MOVE_DOWN,
   UPDATE_PACKAGES,
 } from './actions';
 
@@ -49,14 +47,6 @@ const AppProvider = ({ children }) => {
     dispatch({ type: DISPLAY_MODAL });
   };
 
-  const moveUp = (type, index) => {
-    dispatch({ type: MOVE_UP, payload: { type, index } });
-  };
-
-  const moveDown = (type, index) => {
-    dispatch({ type: MOVE_DOWN, payload: { type, index } });
-  };
-
   const updatePackages = (PKG) => {
     dispatch({ type: UPDATE_PACKAGES, payload: PKG });
   };
@@ -70,8 +60,6 @@ const AppProvider = ({ children }) => {
         removePackage,
         addPackage,
         displayModal,
-        moveUp,
-        moveDown,
         updatePackages,
       }}
     >
